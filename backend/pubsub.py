@@ -1,3 +1,4 @@
+import os
 import time
 
 from pubnub.pubnub import PubNub
@@ -6,10 +7,9 @@ from pubnub.callbacks import SubscribeCallback
 
 from backend.blockchain.block import Block
 
-
 pnconfig = PNConfiguration()
-pnconfig.subscribe_key = 'sub-c-2a2a710a-b803-11eb-8313-02017f28bfc9'
-pnconfig.publish_key = 'pub-c-c7de563d-01f2-4013-a5c5-eb3de10cf3f7'
+pnconfig.subscribe_key = os.getenv('PUBNUB_SUBSCRIBE_KEY')
+pnconfig.publish_key = os.getenv('PUBNUB_PUBLISH_KEY')
 
 CHANNELS = {
     'TEST': 'TEST',
